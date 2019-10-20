@@ -1,0 +1,23 @@
+{% extends "myindex.html" %}
+{% block content %}
+	<!-- {% set total_results = news['totalResults'] %} -->
+	{% for n in news %}
+	{% if n == 'articles' %}
+			{% for i in range(news['articles']|count) %}
+				<article class="media content-section">
+					<div class="media-body">
+						<a href = "{{ news[n][i]['url'] }}">
+							<h2 class="article-title"> {{news[n][i]['title']}}</h2>
+						</a>
+						<a href = "{{ news[n][i]['url'] }}">
+							<img class="img-fluid" src="{{ news[n][i]['urlToImage'] }}" alt = "Image Not Found" > 
+						</a>
+						<p class="article-content"> {{news[n][i]['description']}} </p>
+					</div>	
+				</article>
+				<div class="line"></div>
+			{% endfor %}
+
+		{% endif %}
+	{% endfor%}
+{% endblock content %}

@@ -1,0 +1,13 @@
+cntr + ~ to open terminal on Visual Studio
+ctrl + shift + r to reload page with clearing cache
+
+db input
+
+from flasknews import db
+from flasknews.models import User
+
+user_1 = User(username = 'Kunal',email = 'k@p.com',password = 'password')
+user_2 = User(username = 'Tushar',email = 't@s.com',password = 'password')
+
+
+
