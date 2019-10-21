@@ -21,9 +21,8 @@ def home():
 	form = QueryForm()
 	if form.validate_on_submit():
 		query = form.query_string.data
-		url = ('''https://newsapi.org/v2/everything?q=' + query + '&from=2019-10-19&to=2019-10-19
-			&sortBy=popularity&apiKey=afc81dd95663478a88bc39e5cdc851ec''')
-		title = 'Search Results'
+		url = 'https://newsapi.org/v2/everything?q=' + query + '&apiKey=afc81dd95663478a88bc39e5cdc851ec'
+		title = 'Search results for ' + query
 	else:
 		url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=afc81dd95663478a88bc39e5cdc851ec'
 		title = 'Home'
@@ -125,6 +124,41 @@ def business():
 	response = requests.get(url)
 	news = response.json()
 	return render_template('home.html',news = news, title = 'Business')
+
+@app.route("/general")
+def general():
+	url = ('https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	response = requests.get(url)
+	news = response.json()
+	return render_template('home.html',news = news, title = 'General')
+
+@app.route("/health")
+def health():
+	url = ('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	response = requests.get(url)
+	news = response.json()
+	return render_template('home.html',news = news, title = 'Health')
+
+@app.route("/science")
+def science():
+	url = ('https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	response = requests.get(url)
+	news = response.json()
+	return render_template('home.html',news = news, title = 'Science')
+
+@app.route("/sports")
+def sports():
+	url = ('https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	response = requests.get(url)
+	news = response.json()
+	return render_template('home.html',news = news, title = 'Sports')
+
+@app.route("/technology")
+def technology():
+	url = ('https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	response = requests.get(url)
+	news = response.json()
+	return render_template('home.html',news = news, title = 'Technology')
 
 # @app.route("/query", methods=['GET', 'POST'])
 # def query():

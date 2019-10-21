@@ -57,15 +57,13 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
+                        <li class="nav-item ">
+                            <a class="nav-item nav-link" href="{{ url_for('account') }}"> Your Account</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="active">
@@ -76,6 +74,21 @@
                         </li>
                         <li>
                             <a href="{{ url_for('business') }}">Business</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('general') }}">General</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('health') }}">Health</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('science') }}">Science</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('sports') }}">Sports</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('technology') }}">Technology</a>
                         </li>
                      </ul>
                 </li>
@@ -110,21 +123,13 @@
                             <li class="nav-item ">
                                 <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
                             </li>
-                            {% if current_user.is_authenticated %}
+                            {% if not current_user.is_authenticated %}
                                 <li class="nav-item ">
-                                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                                    <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
                                 </li>
                                 <li class="nav-item ">
-                                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                                    <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
                                 </li>
-                            {% else %}
-                                <li class="nav-item ">
-                                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                                </li>
-                                <li class="nav-item ">
-                                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-                                </li>
-
                             {% endif %}
                             <li class="nav-item">
                                 <a class="navbar-brand mr-4" href="/">Flask News</a>
