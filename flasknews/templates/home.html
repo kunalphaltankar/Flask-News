@@ -2,14 +2,14 @@
 {% block content %}
 	<!-- {% set total_results = news['totalResults'] %} -->
 	{% for n in news %}
-	{% if n == 'articles' %}
-			{% for i in range(news['articles']|count) %}
+		{% if n == 'articles' %}
+			{% for i in range(news[n]|count) %}
 				<article class="media content-section">
 					<div class="media-body">
-						<a href = "{{ news[n][i]['url'] }}">
-							<h2 class="article-title"> {{news[n][i]['title']}}</h2>
+						<a id="url" href = "{{ news[n][i]['url'] }}" onclick="save_click()">
+							<h2 class="article-title"> {{ news[n][i]['title'] }}</h2>
 						</a>
-						<a href = "{{ news[n][i]['url'] }}">
+						<a href = "{{ news[n][i]['url'] }}" onclick="save_click()">
 							<img class="img-fluid" src="{{ news[n][i]['urlToImage'] }}" alt = "Image Not Found" > 
 						</a>
 						<p class="article-content"> {{news[n][i]['description']}} </p>
@@ -17,7 +17,20 @@
 				</article>
 				<div class="line"></div>
 			{% endfor %}
-
 		{% endif %}
 	{% endfor%}
+	<script type="text/javascript">
+		function save_click(){
+			var xhttp = new XMLHttpRequest();
+			// xhttp.onreadystatechange = function() {
+			// 	if (this.readyState == 4 && this.status == 200) {
+			// 		document.getElementById("link").innerHTML = this.responseText;
+			// 	}
+			// };
+			xhttp.open("POST", "{{ url_for('test_var_access') }}", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("link=To the other side...");
+		}
+
+	</script>
 {% endblock content %}

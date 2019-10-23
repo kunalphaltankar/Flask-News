@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test - Variable accesss</title>
+</head>
+<body>
+	<a href="#" onclick="test()" id="demo">test_var_access	</a>
+
+
+<script type="text/javascript">
+	function test() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("demo").innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("POST", "{{ url_for('test_var_access') }}", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("fname=Henry&lname=Ford");
+	}
+	
+</script>
+
+</body>
+</html>

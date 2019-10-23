@@ -50,3 +50,10 @@ class UpdateAccountForm(FlaskForm):
 
 class  QueryForm(FlaskForm):
 	query_string = StringField("Query",validators=[DataRequired()])
+	def on_submit(self,url,title):
+		if self.validate_on_submit():
+			query = self.query_string.data
+			url = 'https://newsapi.org/v2/everything?q=' + query + '&apiKey=afc81dd95663478a88bc39e5cdc851ec'
+			title = 'Search results for ' + query
+			return (title,url)
+		return(title,url)

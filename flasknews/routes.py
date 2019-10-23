@@ -13,19 +13,23 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 
 
-# Basic Info
+#Test Cases
+@app.route("/test_var_access", methods = ['GET', 'POST'])
+def test_var_access():
+	value = request.values.get("link")
+	if value:
+		print(value)
+	return render_template('test_var_access.html')
 
+
+# Basic Info
 @app.route("/", methods = ['GET', 'POST'])
 @app.route("/home")
 def home():
+	url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=afc81dd95663478a88bc39e5cdc851ec'
 	form = QueryForm()
-	if form.validate_on_submit():
-		query = form.query_string.data
-		url = 'https://newsapi.org/v2/everything?q=' + query + '&apiKey=afc81dd95663478a88bc39e5cdc851ec'
-		title = 'Search results for ' + query
-	else:
-		url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=afc81dd95663478a88bc39e5cdc851ec'
-		title = 'Home'
+	title = 'Home'
+	(title,url) = form.on_submit(url,title)
 	
 	response = requests.get(url)
 	news = response.json()
@@ -37,6 +41,9 @@ def about():
 
 @app.route("/news")
 def newsDict():
+	url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=afc81dd95663478a88bc39e5cdc851ec'
+	response = requests.get(url)
+	news = response.json()
 	return news
 
 # Register/Login/Account Information
@@ -111,65 +118,73 @@ def account():
 
 # News Categories
 
-@app.route("/entertainment")
+@app.route("/entertainment", methods = ['GET', 'POST'])
 def entertainment():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Entertainment'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Entertainment')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/business")
+@app.route("/business", methods = ['GET', 'POST'])
 def business():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Business'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Business')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/general")
+@app.route("/general", methods = ['GET', 'POST'])
 def general():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'General'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'General')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/health")
+@app.route("/health", methods = ['GET', 'POST'])
 def health():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Health'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Health')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/science")
+@app.route("/science", methods = ['GET', 'POST'])
 def science():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Science'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Science')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/sports")
+@app.route("/sports", methods = ['GET', 'POST'])
 def sports():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Sports'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Sports')
+	return render_template('home.html',news = news, title = title, form = form)
 
-@app.route("/technology")
+
+@app.route("/technology", methods = ['GET', 'POST'])
 def technology():
 	url = ('https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=afc81dd95663478a88bc39e5cdc851ec')
+	form = QueryForm()
+	title = 'Technology'
+	(title,url) = form.on_submit(url,title)
 	response = requests.get(url)
 	news = response.json()
-	return render_template('home.html',news = news, title = 'Technology')
-
-# @app.route("/query", methods=['GET', 'POST'])
-# def query():
-# 	form = QueryForm()
-# 	print(form.validate_on_submit())
-# 	if form.validate_on_submit():
-# 		q = form.query_string.data
-# 		print(q)
-# 	else:
-# 		q = 'apple'
-# 	url = ('https://newsapi.org/v2/everything?q=' + q + '&from=2019-10-19&to=2019-10-19&sortBy=popularity&apiKey=afc81dd95663478a88bc39e5cdc851ec')
-# 	response = requests.get(url)
-# 	news = response.json()
-# 	return render_template('query_result.html',news = news, title = 'Search Results', form = form)
+	return render_template('home.html',news = news, title = title, form = form)
