@@ -215,7 +215,6 @@ h2.article-title:hover {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #7386D5;
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -224,4 +223,10 @@ h2.article-title:hover {
 
 #myBtn:hover {
   background-color: #555;
+}
+/* change all .btn to .btn-sm size on xs */
+@include media-breakpoint-between(xs,sm){
+  .btn {
+      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+  }
 }
