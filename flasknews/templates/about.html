@@ -1,4 +1,36 @@
 {% extends "myindex.html" %}
 {% block content %}
-    <h1>About Page</h1>
+		<div class="container-fluid">
+			<h1 class="text-center text-capitalize pt-5 text">about us</h1>
+			<hr class="w-25 mx-auto pt-5">
+				
+			<div class="row mb-5">
+				<div class="col-lg-12 col-md-12 col-12">
+					<div class="home-main-container">
+						<div class="home-main-copy">
+							<p>From Day One, we’ve believed that great stories move the world forward and that truth matters.</p>
+							<p>FlaskNews was founded as one place to find the stories for your day, bringing together your favorite news sources with social content, to give a deep view into everything from political issues to technology trends to travel inspiration.</p>
+							<p>Over the years, with the greate ideas, suggestions and with our community, we’ve built a curated experience with a plurality of voices, where people can find quality stories on any interest, investing in their lives and their passions.</p>
+							<p>Now our mission is to advance conversation through important and influential stories that not only keep people informed, but also inspire them to engage, learn and lead.</p>
+
+						<button class="btn bg-primary align-self-center text-white "><a href="{{ url_for('contact') }}">Wanna know us</a> </button>
+						</div>				
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<div class="recent_update mt-0">
+		<h3>Improvemnt is the key to the success</h3>
+		<hr>
+		<h6>Our latest update has changed the overall product</h6>
+		<div>		
+			<p class="w-75">we have introduced completely fresh UI with the straight forward content, where users can look for their intrest</p>
+			<p>You Just have to <a class="btn-link" href="{{ url_for('login') }}">Login</a> with us</p>
+			<div class="ml-5">
+				<img src="{{ url_for('static', filename='category.png')}}" class="img-fluid">
+			</div>
+		</div>
+	</div>
+
 {% endblock content %}

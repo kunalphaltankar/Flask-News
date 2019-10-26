@@ -36,10 +36,10 @@
             <div id="dismiss">
                 <i class="fas fa-arrow-left"></i>
             </div>
-
             <div class="sidebar-header">
                 <h3>Flask News Sidebar</h3>
             </div>
+
 
             <ul class="list-unstyled components">
                 <p>More Info</p>
@@ -64,38 +64,38 @@
                         <li class="nav-item ">
                             <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                         </li>
-                        <li>
+                        <!-- <li> -->
                     </ul>
                 </li>
                 <li class="active">
                     <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false">Category</a>
                     <ul class="collapse list-unstyled" id="categorySubmenu">
                         <li>
-                            <a href="{{ url_for('entertainment') }}">Entertainment</a>
+                            <a href="{{ url_for('home',category='entertainment') }}">Entertainment</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('business') }}">Business</a>
+                            <a href="{{ url_for('home',category='business') }}">Business</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('general') }}">General</a>
+                            <a href="{{ url_for('home',category='general') }}">General</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('health') }}">Health</a>
+                            <a href="{{ url_for('home',category='health') }}">Health</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('science') }}">Science</a>
+                            <a href="{{ url_for('home',category='science') }}">Science</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('sports') }}">Sports</a>
+                            <a href="{{ url_for('home',category='sports') }}">Sports</a>
                         </li>
                         <li>
-                            <a href="{{ url_for('technology') }}">Technology</a>
+                            <a href="{{ url_for('home',category='technology') }}">Technology</a>
                         </li>
                      </ul>
                 </li>
                 
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="{{ url_for('contact') }}">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -107,17 +107,27 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     {% if current_user.is_authenticated %}
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    
+                    <button type="button" id="sidebarCollapse" class="btn btn-info ml-5">
                         <i class="fas fa-align-left"></i>
-                        <span>Open</span>
+                        <span>Explore</span>
                     </button>
                     {%  endif   %}
                     <button class="btn btn-info d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
+                    <div class="ml-2">
+                        <img src="{{ url_for('static', filename='FN1.png')}}">
+                    </div>
+                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                              
                         <ul class="nav navbar-nav ml-auto">
+                            <li>
+                                <div class="ml-2 mr-5">
+                                    <h2>Flask News</h2>    
+                                </div>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
                             </li>
@@ -131,10 +141,15 @@
                                 <li class="nav-item ">
                                     <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
                                 </li>
+                            {% else %}
+                                <li class="nav-item ">
+                                    <a class="nav-item nav-link" href="{{ url_for('account') }}"> Your Account</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                                </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="navbar-brand mr-4" href="/">Flask News</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -155,8 +170,10 @@
                 </div>
                 <button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-info btn-sm">Top</button>
              </div>
-
         </div>
+    </div>
+    <div id="myfooter">
+       <h6 class="text-center bg-dark text-white">@copyright T&k.com 2019</h6>
     </div>
 
     <div class="overlay"></div>
@@ -188,6 +205,8 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
         });
+
+
     </script>
 
     <script>

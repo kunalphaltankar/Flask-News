@@ -185,10 +185,15 @@ a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
-    position: absolute;
+    
     top: 0;
     right: 0;
 }
+#content .footer
+{
+    margin-bottom: 0px;
+}
+
 
 /*Article Style*/
 
@@ -224,9 +229,68 @@ h2.article-title:hover {
 #myBtn:hover {
   background-color: #555;
 }
+
+
 /* change all .btn to .btn-sm size on xs */
 @include media-breakpoint-between(xs,sm){
   .btn {
       @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
   }
+}
+
+#myfooter h6{
+    padding-top: 7px;
+    height: 35px;
+    margin-bottom: 0px;
+}
+.home-main-copy {
+    width: 70%;
+    display: table-cell;
+    padding-bottom: 8rem;
+    margin-bottom: 0;
+}
+
+
+
+
+.home-main--new {
+ min-height:100vh
+}
+.home-main--new .home-main-container {
+ max-width:90em;
+ margin:0 auto;
+ padding:30px 19px 4rem;
+ display:table
+}
+@media screen and (max-width:1199px) {
+ .home-main--new .home-main-container {
+  margin:0
+ }
+}
+@media screen and (min-width:768px) {
+ .home-main--new .home-main-container {
+  padding:4rem 2rem
+ }
+}
+.home-main--new .home-main-copy {
+ margin-bottom:75px;
+}
+@media screen and (min-width:1200px) {
+ .home-main--new .home-main-copy {
+  width:70%;
+  display:table-cell;
+  padding-bottom:8rem;
+  margin-bottom:0
+ }
+}
+.home-main--new .home-main-copy a {
+ border-bottom:4px solid #f52828;
+ background:0 0!important
+}
+.home-main--new p {
+ font-family:TiemposText,Georgia,Times,"Times New Roman",serif;
+ font-weight:700;
+ margin-bottom:1.5rem;
+ font-size:22px;
+ line-height:26px
 }

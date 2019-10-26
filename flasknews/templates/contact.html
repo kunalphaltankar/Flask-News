@@ -1,0 +1,75 @@
+{% extends "myindex.html" %}
+{% block content %}
+    
+			<div class="container">
+					<h1 class="text-center text-capitalize pt-5">Contact Us</h1>
+					<hr class="w-25 mx-auto pt-5">
+					
+					<div class="row text-center mb-5">
+						<div class="col-lg-6 col-md-6 col-12">
+							<div class="card">
+								
+									<img class="card-img-top img-fluid" src="{{ url_for('static', filename='tushar.jpg')}}" alt="Card image">
+								
+								<div class="card-body">
+									<h4 class="card-title">Tushar Shete</h4>
+									<p class="card-text">Editor</p>
+									<img src="{{ url_for('static', filename='phone.png')}}" class="img-fluid">
+									<a class="btn-link">8830506617</a>
+									<p class="card-text">tusharshetek@gmail.com</p>
+									<img src="{{ url_for('static', filename='insta.png')}}" class="img-fluid">
+									<a href="https://www.instagram.com/tusharshete0504/" class="btn-link">See Profile</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-12">
+							<div class="card">
+								<div class="card_img">
+									<img class="card-img-top img-fluid img-responsive" src="{{ url_for('static', filename='kunal.jpg')}}" alt="Card image">
+								</div>
+								<div class="card-body">
+									<h4 class="card-title">Kunal Phaltankar</h4>
+									<p class="card-text">Coder</p>
+									<img src="{{ url_for('static', filename='phone.png')}}" class="img-fluid">
+									<a class="btn-link">9834768101</a>
+									<p class="card-text">kunalphaltankar@gmail.com</p>
+									<img src="{{ url_for('static', filename='insta.png')}}" class="img-fluid">
+									<a href="https://www.instagram.com/kunal_phaltankar/" class="btn-link">See Profile</a>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>	
+		<!--servises ends here-->
+		
+		 <div class="container-fluid bg-grey">
+  			<h2 class="text-center">Feel Free To Contact</h2>
+  			<hr class="w-25 mx-auto pt-5">
+  			<div class="row">
+    			<div class="col-sm-5">
+      				<p>Contact us and we'll get back to you within 24 hours.</p>
+			        <p><span class="glyphicon glyphicon-map-marker"></span> pune - 412207</p>
+      				<p><span class="glyphicon glyphicon-phone"></span> +91 8830506617</p>
+      				<p><span class="glyphicon glyphicon-envelope"></span> tusharshetek.com</p>
+    			</div>
+    			<div class="col-sm-7">
+      				<div class="row">
+        				<div class="col-sm-6 form-group">
+          					<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        				</div>
+        				<div class="col-sm-6 form-group">
+        	    			<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        				</div>
+      				</div>
+      				<textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      				<div class="row">
+        				<div class="col-sm-12 form-group">
+        			  		<button class="btn btn-default pull-right" type="submit">Send</button>
+        				</div>
+      				</div>
+    			</div>
+  			</div>
+		</div> 
+
+				<!--Contact us Ends-->
+{% endblock content %}
