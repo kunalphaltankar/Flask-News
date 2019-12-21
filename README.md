@@ -1,2 +1,2 @@
 # Flask-News
-Fast and Simple News using newsapi
+Fast and Simple News using NewsAPI
